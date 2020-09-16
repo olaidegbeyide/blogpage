@@ -31,19 +31,17 @@ carouselButtons.forEach(button => {
     });
 })
 
-
 //Passing the API
 
 const loadUsers = async () => {
-    await fetch('https://api.github.com/users/')
+    await fetch('https://api.github.com/users')
     .then(response => response.json())
     .then(data => {
-        let carouselImage = ``
-        // carouselImages.innerHTML = `<img src="${data.avatar_url}" width="300px" height="400px">`
-        data.map(profile => {
-            carouselImage += `<img src="${profile.avatar_url}" width="300px" height="400px">`
-            carouselImages.innerHTML = carouselImage
+        let carouselImag = ``
+        data.map(_data => {
+            carouselImag += `<img src="${_data.avatar_url}" width="300px" height="400px">`
         })
+        carouselImages.innerHTML = carouselImag
     })
 }
 
